@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fénix GX</title>
+
+<!-- ICONOS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(255,120,0,0.15),
+    transparent 25%),
+
+    radial-gradient(circle at bottom right,
+    rgba(255,80,0,0.12),
+    transparent 30%),
+
+    linear-gradient(
+    180deg,
+    #170800,
+    #070707
+    );
+
+    color:white;
+
+    display:flex;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+
+    width:86px;
+    height:100vh;
+
+    background:
+    rgba(10,10,10,0.92);
+
+    border-right:
+    1px solid rgba(255,120,0,0.12);
+
+    backdrop-filter:blur(20px);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding:18px 10px;
+
+    gap:15px;
+
+    z-index:100;
+}
+
+/* LOGO */
+
+.logo{
+
+    width:58px;
+    height:58px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff5e00,
+    #ff9500
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:24px;
+
+    box-shadow:
+    0 0 25px rgba(255,120,0,0.4);
+}
+
+/* BOTONES */
+
+.side-btn{
+
+    width:58px;
+    height:58px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#111111;
+
+    color:#d5d5d5;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:0.25s;
+}
+
+.side-btn:hover{
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff5e00,
+    #ff9500
+    );
+
+    color:white;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 20px rgba(255,120,0,0.35);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+
+    flex:1;
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.tabs{
+
+    width:100%;
+
+    height:58px;
+
+    display:none;
+
+    align-items:end;
+
+    gap:10px;
+
+    padding:0 14px;
+
+    background:
+    rgba(10,10,10,0.92);
+
+    border-bottom:
+    1px solid rgba(255,120,0,0.08);
+
+    overflow-x:auto;
+}
+
+/* TAB */
+
+.tab{
+
+    min-width:210px;
+
+    height:46px;
+
+    border-radius:
+    16px 16px 0 0;
+
+    background:#111111;
+
+    border:
+    1px solid rgba(255,255,255,0.05);
+
+    border-bottom:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:0 14px;
+
+    color:#d8d8d8;
+
+    flex-shrink:0;
+}
+
+.tab.active{
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(255,94,0,0.2),
+    rgba(255,149,0,0.1)
+    );
+
+    border-color:
+    rgba(255,120,0,0.3);
+
+    color:white;
+}
+
+.tab i{
+    color:#ff9d4d;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar{
+
+    width:100%;
+
+    height:76px;
+
+    background:
+    rgba(10,10,10,0.85);
+
+    border-bottom:
+    1px solid rgba(255,120,0,0.08);
+
+    backdrop-filter:blur(18px);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:0 18px;
+}
+
+/* NAV BTN */
+
+.nav-btn{
+
+    width:46px;
+    height:46px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#111111;
+
+    color:#d5d5d5;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:0.25s;
+}
+
+.nav-btn:hover{
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff5e00,
+    #ff9500
+    );
+
+    color:white;
+}
+
+/* SEARCH BAR */
+
+.search-bar{
+
+    flex:1;
+
+    height:52px;
+
+    background:#101010;
+
+    border:
+    1px solid rgba(255,255,255,0.05);
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:0 18px;
+}
+
+.search-bar i{
+    color:#ff9d4d;
+}
+
+.search-bar input{
+
+    flex:1;
+
+    background:transparent;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+    font-size:16px;
+}
+
+/* CLOCK */
+
+.clock{
+
+    min-width:110px;
+
+    text-align:center;
+
+    background:#101010;
+
+    border:
+    1px solid rgba(255,255,255,0.05);
+
+    border-radius:16px;
+
+    padding:11px 15px;
+
+    color:#ffb347;
+
+    font-weight:bold;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content{
+
+    flex:1;
+
+    overflow:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:30px;
+}
+
+/* HOME */
+
+.home{
+
+    width:100%;
+
+    max-width:920px;
+
+    text-align:center;
+}
+
+/* TITLE */
+
+.title{
+
+    font-size:88px;
+
+    font-weight:900;
+
+    margin-bottom:18px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #ff5e00,
+    #ff9500,
+    #ffc400
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+/* SUBTITLE */
+
+.subtitle{
+
+    color:#8f8f8f;
+
+    font-size:18px;
+
+    margin-bottom:42px;
+}
+
+/* SEARCH */
+
+.main-search{
+
+    width:100%;
+
+    background:#101010;
+
+    border:
+    1px solid rgba(255,120,0,0.08);
+
+    border-radius:28px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px;
+}
+
+.main-search i{
+    color:#ff9d4d;
+}
+
+.main-search input{
+
+    flex:1;
+
+    background:transparent;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+    font-size:18px;
+}
+
+.main-search button{
+
+    width:60px;
+    height:60px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff5e00,
+    #ff9500
+    );
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+}
+
+/* SHORTCUTS */
+
+.shortcuts{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(170px,1fr));
+
+    gap:18px;
+}
+
+/* CARD */
+
+.card{
+
+    background:#101010;
+
+    border:
+    1px solid rgba(255,255,255,0.04);
+
+    border-radius:24px;
+
+    padding:30px 20px;
+
+    transition:0.25s;
+
+    cursor:pointer;
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:
+    rgba(255,120,0,0.4);
+
+    box-shadow:
+    0 0 25px rgba(255,120,0,0.15);
+}
+
+.card i{
+
+    font-size:42px;
+
+    color:#ff9d4d;
+
+    margin-bottom:15px;
+}
+
+/* =========================
+   IFRAME
+========================= */
+
+iframe{
+
+    width:100%;
+    height:100%;
+
+    border:none;
+
+    background:white;
+
+    display:none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .title{
+        font-size:60px;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .clock{
+        display:none;
+    }
+
+    .sidebar{
+        width:74px;
+    }
+
+    .title{
+        font-size:44px;
+    }
+
+    .subtitle{
+        font-size:15px;
+    }
+
+    .topbar{
+        padding:0 10px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .shortcuts{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        <i class="fa-solid fa-fire"></i>
+    </div>
+
+    <button class="side-btn"
+    onclick="openWebsite('https://google.com','Google','fa-brands fa-google')">
+        <i class="fa-brands fa-google"></i>
+    </button>
+
+    <button class="side-btn"
+    onclick="openWebsite('https://youtube.com','YouTube','fa-brands fa-youtube')">
+        <i class="fa-brands fa-youtube"></i>
+    </button>
+
+    <button class="side-btn"
+    onclick="openWebsite('https://github.com','GitHub','fa-brands fa-github')">
+        <i class="fa-brands fa-github"></i>
+    </button>
+
+    <button class="side-btn"
+    onclick="openWebsite('https://discord.com','Discord','fa-brands fa-discord')">
+        <i class="fa-brands fa-discord"></i>
+    </button>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <!-- TABS -->
+
+    <div class="tabs" id="tabs">
+
+        <div class="tab active" id="tabContent">
+
+            <i id="tabIcon"
+            class="fa-brands fa-google"></i>
+
+            <span id="tabTitle">
+                Google
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <button class="nav-btn"
+        onclick="goBack()">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        <button class="nav-btn"
+        onclick="goForward()">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <button class="nav-btn"
+        onclick="reloadPage()">
+            <i class="fa-solid fa-rotate-right"></i>
+        </button>
+
+        <!-- URL -->
+
+        <div class="search-bar">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <input
+            type="text"
+            id="urlBar"
+            placeholder="Buscar o escribir URL..."
+            >
+
+        </div>
+
+        <!-- CLOCK -->
+
+        <div class="clock" id="clock">
+            00:00:00
+        </div>
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="content" id="content">
+
+        <!-- HOME -->
+
+        <div class="home" id="homePage">
+
+            <div class="title">
+                FÉNIX
+            </div>
+
+            <div class="subtitle">
+                Navegador profesional inspirado en Opera GX
+            </div>
+
+            <!-- SEARCH -->
+
+            <div class="main-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                type="text"
+                id="mainSearch"
+                placeholder="Buscar en internet..."
+                >
+
+                <button onclick="searchGoogle()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+            <!-- SHORTCUTS -->
+
+            <div class="shortcuts">
+
+                <div class="card"
+                onclick="openWebsite('https://google.com','Google','fa-brands fa-google')">
+
+                    <i class="fa-brands fa-google"></i>
+
+                    <div>Google</div>
+
+                </div>
+
+                <div class="card"
+                onclick="openWebsite('https://youtube.com','YouTube','fa-brands fa-youtube')">
+
+                    <i class="fa-brands fa-youtube"></i>
+
+                    <div>YouTube</div>
+
+                </div>
+
+                <div class="card"
+                onclick="openWebsite('https://github.com','GitHub','fa-brands fa-github')">
+
+                    <i class="fa-brands fa-github"></i>
+
+                    <div>GitHub</div>
+
+                </div>
+
+                <div class="card"
+                onclick="openWebsite('https://discord.com','Discord','fa-brands fa-discord')">
+
+                    <i class="fa-brands fa-discord"></i>
+
+                    <div>Discord</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- IFRAME -->
+
+        <iframe id="browser"></iframe>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ELEMENTOS */
+
+const iframe =
+document.getElementById("browser");
+
+const tabs =
+document.getElementById("tabs");
+
+const homePage =
+document.getElementById("homePage");
+
+const urlBar =
+document.getElementById("urlBar");
+
+const tabTitle =
+document.getElementById("tabTitle");
+
+const tabIcon =
+document.getElementById("tabIcon");
+
+/* ABRIR WEB */
+
+function openWebsite(url,title,icon){
+
+    tabs.style.display = "flex";
+
+    iframe.style.display = "block";
+
+    homePage.style.display = "none";
+
+    iframe.src = url;
+
+    urlBar.value = url;
+
+    tabTitle.innerText = title;
+
+    tabIcon.className = icon;
+
+}
+
+/* SEARCH */
+
+function searchGoogle(){
+
+    let q =
+    document
+    .getElementById("mainSearch")
+    .value
+    .trim();
+
+    if(q === "") return;
+
+    openWebsite(
+    "https://www.google.com/search?q=" +
+    encodeURIComponent(q),
+    q,
+    "fa-brands fa-google"
+    );
+
+}
+
+/* URL BAR */
+
+urlBar.addEventListener(
+"keypress",
+function(e){
+
+    if(e.key === "Enter"){
+
+        let url = urlBar.value.trim();
+
+        if(!url.startsWith("http")){
+            url = "https://" + url;
+        }
+
+        iframe.src = url;
+    }
+
+});
+
+/* NAVIGATION */
+
+function goBack(){
+
+    try{
+        iframe.contentWindow.history.back();
+    }catch(err){}
+
+}
+
+function goForward(){
+
+    try{
+        iframe.contentWindow.history.forward();
+    }catch(err){}
+
+}
+
+function reloadPage(){
+
+    try{
+        iframe.contentWindow.location.reload();
+    }catch(err){}
+
+}
+
+/* CLOCK */
+
+async function startClock(){
+
+    try{
+
+        const res = await fetch(
+        "https://worldtimeapi.org/api/timezone/America/Santiago"
+        );
+
+        const data = await res.json();
+
+        const date = new Date(data.datetime);
+
+        setInterval(()=>{
+
+            date.setSeconds(
+                date.getSeconds()+1
+            );
+
+            const h = String(
+                date.getHours()
+            ).padStart(2,"0");
+
+            const m = String(
+                date.getMinutes()
+            ).padStart(2,"0");
+
+            const s = String(
+                date.getSeconds()
+            ).padStart(2,"0");
+
+            document
+            .getElementById("clock")
+            .innerText =
+            `${h}:${m}:${s}`;
+
+        },1000);
+
+    }catch(err){
+
+        document
+        .getElementById("clock")
+        .innerText =
+        "Offline";
+
+    }
+
+}
+
+startClock();
+
+</script>
+
+</body>
+</html>
