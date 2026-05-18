@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Fénix GX</title>
 
 <!-- ICONOS -->
@@ -12,35 +11,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:
-    Inter,
-    Arial,
-    sans-serif;
+    font-family:Inter,Arial,sans-serif;
 }
 
 html,body{
     width:100%;
-    height:100%;
-    overflow:hidden;
+    min-height:100%;
+    overflow-x:hidden;
 }
-
-/* =========================
-   BODY
-========================= */
 
 body{
 
     background:
     radial-gradient(circle at top left,
-    rgba(255,120,0,0.15),
+    rgba(255,120,0,0.16),
     transparent 25%),
 
     radial-gradient(circle at bottom right,
@@ -49,51 +37,62 @@ body{
 
     linear-gradient(
     180deg,
-    #170800,
-    #070707
+    #180900,
+    #080808
     );
 
     color:white;
-
-    display:flex;
 }
 
-/* =========================
-   SIDEBAR
-========================= */
+/* TOPBAR */
 
-.sidebar{
+.topbar{
 
-    width:86px;
-    height:100vh;
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:78px;
 
     background:
-    rgba(10,10,10,0.92);
+    rgba(10,10,10,0.82);
 
-    border-right:
+    backdrop-filter:blur(18px);
+
+    border-bottom:
     1px solid rgba(255,120,0,0.12);
 
-    backdrop-filter:blur(20px);
-
     display:flex;
-    flex-direction:column;
+
     align-items:center;
 
-    padding:18px 10px;
+    justify-content:space-between;
 
-    gap:15px;
+    padding:0 20px;
 
-    z-index:100;
+    z-index:999;
 }
 
 /* LOGO */
 
 .logo{
 
-    width:58px;
-    height:58px;
+    display:flex;
 
-    border-radius:18px;
+    align-items:center;
+
+    gap:12px;
+}
+
+.logo-icon{
+
+    width:50px;
+    height:50px;
+
+    border-radius:16px;
 
     background:
     linear-gradient(
@@ -103,38 +102,75 @@ body{
     );
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-
-    font-size:24px;
-
-    box-shadow:
-    0 0 25px rgba(255,120,0,0.4);
-}
-
-/* BOTONES */
-
-.side-btn{
-
-    width:58px;
-    height:58px;
-
-    border:none;
-
-    border-radius:18px;
-
-    background:#111111;
-
-    color:#d5d5d5;
 
     font-size:22px;
 
+    box-shadow:
+    0 0 22px rgba(255,120,0,0.45);
+}
+
+.logo-text{
+
+    font-size:26px;
+
+    font-weight:900;
+
+    background:
+    linear-gradient(
+    90deg,
+    #ff7300,
+    #ffb347
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+/* MENU */
+
+.center-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.menu-btn{
+
+    background:#111111;
+
+    border:
+    1px solid rgba(255,255,255,0.05);
+
+    color:#d7d7d7;
+
+    padding:12px 16px;
+
+    border-radius:16px;
+
     cursor:pointer;
 
     transition:0.25s;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
 }
 
-.side-btn:hover{
+.menu-btn:hover{
 
     background:
     linear-gradient(
@@ -145,208 +181,10 @@ body{
 
     color:white;
 
-    transform:translateY(-3px);
+    transform:translateY(-2px);
 
     box-shadow:
     0 0 20px rgba(255,120,0,0.35);
-}
-
-/* =========================
-   MAIN
-========================= */
-
-.main{
-
-    flex:1;
-
-    height:100vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    overflow:hidden;
-}
-
-/* =========================
-   TABS
-========================= */
-
-.tabs{
-
-    width:100%;
-
-    height:58px;
-
-    display:none;
-
-    align-items:end;
-
-    gap:10px;
-
-    padding:0 14px;
-
-    background:
-    rgba(10,10,10,0.92);
-
-    border-bottom:
-    1px solid rgba(255,120,0,0.08);
-
-    overflow-x:auto;
-}
-
-/* TAB */
-
-.tab{
-
-    min-width:210px;
-
-    height:46px;
-
-    border-radius:
-    16px 16px 0 0;
-
-    background:#111111;
-
-    border:
-    1px solid rgba(255,255,255,0.05);
-
-    border-bottom:none;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    padding:0 14px;
-
-    color:#d8d8d8;
-
-    flex-shrink:0;
-}
-
-.tab.active{
-
-    background:
-    linear-gradient(
-    135deg,
-    rgba(255,94,0,0.2),
-    rgba(255,149,0,0.1)
-    );
-
-    border-color:
-    rgba(255,120,0,0.3);
-
-    color:white;
-}
-
-.tab i{
-    color:#ff9d4d;
-}
-
-/* =========================
-   TOPBAR
-========================= */
-
-.topbar{
-
-    width:100%;
-
-    height:76px;
-
-    background:
-    rgba(10,10,10,0.85);
-
-    border-bottom:
-    1px solid rgba(255,120,0,0.08);
-
-    backdrop-filter:blur(18px);
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    padding:0 18px;
-}
-
-/* NAV BTN */
-
-.nav-btn{
-
-    width:46px;
-    height:46px;
-
-    border:none;
-
-    border-radius:15px;
-
-    background:#111111;
-
-    color:#d5d5d5;
-
-    font-size:17px;
-
-    cursor:pointer;
-
-    transition:0.25s;
-}
-
-.nav-btn:hover{
-
-    background:
-    linear-gradient(
-    135deg,
-    #ff5e00,
-    #ff9500
-    );
-
-    color:white;
-}
-
-/* SEARCH BAR */
-
-.search-bar{
-
-    flex:1;
-
-    height:52px;
-
-    background:#101010;
-
-    border:
-    1px solid rgba(255,255,255,0.05);
-
-    border-radius:20px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    padding:0 18px;
-}
-
-.search-bar i{
-    color:#ff9d4d;
-}
-
-.search-bar input{
-
-    flex:1;
-
-    background:transparent;
-
-    border:none;
-
-    outline:none;
-
-    color:white;
-
-    font-size:16px;
 }
 
 /* CLOCK */
@@ -357,7 +195,7 @@ body{
 
     text-align:center;
 
-    background:#101010;
+    background:#111111;
 
     border:
     1px solid rgba(255,255,255,0.05);
@@ -371,45 +209,38 @@ body{
     font-weight:bold;
 }
 
-/* =========================
-   CONTENT
-========================= */
+/* MAIN */
 
-.content{
-
-    flex:1;
-
-    overflow:auto;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:30px;
-}
-
-/* HOME */
-
-.home{
+.main{
 
     width:100%;
 
-    max-width:920px;
+    padding:
+    130px 25px 40px;
+}
+
+/* HERO */
+
+.hero{
+
+    width:100%;
+
+    max-width:1000px;
+
+    margin:auto;
 
     text-align:center;
 }
 
-/* TITLE */
-
 .title{
 
-    font-size:88px;
+    font-size:92px;
 
     font-weight:900;
 
-    margin-bottom:18px;
+    line-height:1;
+
+    margin-bottom:20px;
 
     background:
     linear-gradient(
@@ -424,11 +255,9 @@ body{
     -webkit-text-fill-color:transparent;
 }
 
-/* SUBTITLE */
-
 .subtitle{
 
-    color:#8f8f8f;
+    color:#949494;
 
     font-size:18px;
 
@@ -437,11 +266,12 @@ body{
 
 /* SEARCH */
 
-.main-search{
+.search-container{
 
     width:100%;
 
-    background:#101010;
+    background:
+    rgba(15,15,15,0.95);
 
     border:
     1px solid rgba(255,120,0,0.08);
@@ -452,16 +282,16 @@ body{
 
     align-items:center;
 
-    gap:12px;
+    gap:14px;
 
-    padding:16px;
+    padding:15px;
 }
 
-.main-search i{
+.search-container i{
     color:#ff9d4d;
 }
 
-.main-search input{
+.search-input{
 
     flex:1;
 
@@ -474,16 +304,24 @@ body{
     color:white;
 
     font-size:18px;
+
+    padding:10px;
 }
 
-.main-search button{
+.search-btn{
 
-    width:60px;
-    height:60px;
+    width:62px;
+    height:62px;
 
     border:none;
 
     border-radius:20px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:20px;
 
     background:
     linear-gradient(
@@ -492,18 +330,22 @@ body{
     #ff9500
     );
 
-    color:white;
+    transition:0.25s;
+}
 
-    font-size:22px;
+.search-btn:hover{
 
-    cursor:pointer;
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 28px rgba(255,120,0,0.5);
 }
 
 /* SHORTCUTS */
 
 .shortcuts{
 
-    margin-top:40px;
+    margin-top:42px;
 
     display:grid;
 
@@ -513,22 +355,21 @@ body{
     gap:18px;
 }
 
-/* CARD */
-
 .card{
 
-    background:#101010;
+    background:
+    rgba(16,16,16,0.95);
 
     border:
     1px solid rgba(255,255,255,0.04);
 
     border-radius:24px;
 
-    padding:30px 20px;
-
-    transition:0.25s;
+    padding:28px 20px;
 
     cursor:pointer;
+
+    transition:0.25s;
 }
 
 .card:hover{
@@ -536,74 +377,195 @@ body{
     transform:translateY(-4px);
 
     border-color:
-    rgba(255,120,0,0.4);
+    rgba(255,120,0,0.45);
 
     box-shadow:
-    0 0 25px rgba(255,120,0,0.15);
+    0 0 24px rgba(255,120,0,0.16);
 }
 
 .card i{
 
-    font-size:42px;
+    font-size:40px;
 
     color:#ff9d4d;
 
-    margin-bottom:15px;
+    margin-bottom:14px;
 }
 
-/* =========================
-   IFRAME
-========================= */
+.card-title{
 
-iframe{
+    color:#ececec;
+
+    font-size:16px;
+}
+
+/* NEWS */
+
+.news-section{
 
     width:100%;
-    height:100%;
 
-    border:none;
+    max-width:1200px;
 
-    background:white;
-
-    display:none;
+    margin:70px auto 0;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+.news-title{
 
-@media(max-width:900px){
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    margin-bottom:24px;
+
+    color:#ffb347;
+}
+
+.news-scroll{
+
+    display:flex;
+
+    gap:20px;
+
+    overflow-x:auto;
+
+    padding-bottom:10px;
+
+    scroll-behavior:smooth;
+}
+
+.news-scroll::-webkit-scrollbar{
+    height:8px;
+}
+
+.news-scroll::-webkit-scrollbar-thumb{
+
+    background:#ff7b00;
+
+    border-radius:20px;
+}
+
+.news-card{
+
+    min-width:340px;
+
+    max-width:340px;
+
+    background:
+    rgba(15,15,15,0.96);
+
+    border:
+    1px solid rgba(255,255,255,0.05);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    transition:0.25s;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+}
+
+.news-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:
+    rgba(255,120,0,0.4);
+
+    box-shadow:
+    0 0 28px rgba(255,120,0,0.18);
+}
+
+.news-card img{
+
+    width:100%;
+
+    height:200px;
+
+    object-fit:cover;
+}
+
+.news-content{
+
+    padding:18px;
+}
+
+.news-source{
+
+    color:#ff9d4d;
+
+    font-size:13px;
+
+    margin-bottom:10px;
+}
+
+.news-headline{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    line-height:1.4;
+
+    margin-bottom:12px;
+}
+
+.news-desc{
+
+    color:#9d9d9d;
+
+    font-size:14px;
+
+    line-height:1.5;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .topbar{
+
+        height:auto;
+
+        padding:16px;
+
+        gap:16px;
+
+        flex-direction:column;
+    }
+
+    .main{
+        padding-top:220px;
+    }
 
     .title{
-        font-size:60px;
+        font-size:68px;
     }
 
 }
 
 @media(max-width:700px){
 
-    .clock{
-        display:none;
-    }
-
-    .sidebar{
-        width:74px;
-    }
-
     .title{
-        font-size:44px;
+        font-size:50px;
     }
 
     .subtitle{
         font-size:15px;
     }
 
-    .topbar{
-        padding:0 10px;
+    .clock{
+        width:100%;
     }
-
-}
-
-@media(max-width:500px){
 
     .shortcuts{
 
@@ -611,40 +573,78 @@ iframe{
         repeat(2,1fr);
     }
 
+    .news-card{
+
+        min-width:280px;
+
+        max-width:280px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .shortcuts{
+        grid-template-columns:1fr;
+    }
+
+    .title{
+        font-size:42px;
+    }
+
 }
 
 </style>
 </head>
-
 <body>
 
-<!-- SIDEBAR -->
+<!-- TOPBAR -->
 
-<div class="sidebar">
+<div class="topbar">
 
     <div class="logo">
-        <i class="fa-solid fa-fire"></i>
+
+        <div class="logo-icon">
+            <i class="fa-solid fa-fire"></i>
+        </div>
+
+        <div class="logo-text">
+            Fénix GX
+        </div>
+
     </div>
 
-    <button class="side-btn"
-    onclick="openWebsite('https://google.com','Google','fa-brands fa-google')">
-        <i class="fa-brands fa-google"></i>
-    </button>
+    <!-- MENU -->
 
-    <button class="side-btn"
-    onclick="openWebsite('https://youtube.com','YouTube','fa-brands fa-youtube')">
-        <i class="fa-brands fa-youtube"></i>
-    </button>
+    <div class="center-menu">
 
-    <button class="side-btn"
-    onclick="openWebsite('https://github.com','GitHub','fa-brands fa-github')">
-        <i class="fa-brands fa-github"></i>
-    </button>
+        <button class="menu-btn">
+            <i class="fa-solid fa-house"></i>
+            Inicio
+        </button>
 
-    <button class="side-btn"
-    onclick="openWebsite('https://discord.com','Discord','fa-brands fa-discord')">
-        <i class="fa-brands fa-discord"></i>
-    </button>
+        <button class="menu-btn">
+            <i class="fa-solid fa-newspaper"></i>
+            Noticias
+        </button>
+
+        <button class="menu-btn">
+            <i class="fa-solid fa-gamepad"></i>
+            Gaming
+        </button>
+
+        <button class="menu-btn">
+            <i class="fa-solid fa-star"></i>
+            Favoritos
+        </button>
+
+    </div>
+
+    <!-- CLOCK -->
+
+    <div class="clock" id="clock">
+        00:00:00
+    </div>
 
 </div>
 
@@ -652,145 +652,103 @@ iframe{
 
 <div class="main">
 
-    <!-- TABS -->
+    <div class="hero">
 
-    <div class="tabs" id="tabs">
-
-        <div class="tab active" id="tabContent">
-
-            <i id="tabIcon"
-            class="fa-brands fa-google"></i>
-
-            <span id="tabTitle">
-                Google
-            </span>
-
+        <div class="title">
+            FÉNIX
         </div>
 
-    </div>
+        <div class="subtitle">
+            Navegador gaming moderno inspirado en Opera GX
+        </div>
 
-    <!-- TOPBAR -->
+        <!-- SEARCH -->
 
-    <div class="topbar">
+        <div class="search-container">
 
-        <button class="nav-btn"
-        onclick="goBack()">
-            <i class="fa-solid fa-arrow-left"></i>
-        </button>
-
-        <button class="nav-btn"
-        onclick="goForward()">
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-
-        <button class="nav-btn"
-        onclick="reloadPage()">
-            <i class="fa-solid fa-rotate-right"></i>
-        </button>
-
-        <!-- URL -->
-
-        <div class="search-bar">
-
-            <i class="fa-solid fa-lock"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
 
             <input
             type="text"
-            id="urlBar"
-            placeholder="Buscar o escribir URL..."
+            id="search"
+            class="search-input"
+            placeholder="Buscar en internet..."
             >
+
+            <button
+            class="search-btn"
+            onclick="searchWeb()">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
 
         </div>
 
-        <!-- CLOCK -->
+        <!-- SHORTCUTS -->
 
-        <div class="clock" id="clock">
-            00:00:00
+        <div class="shortcuts">
+
+            <div class="card"
+            onclick="openSite('https://youtube.com')">
+
+                <i class="fa-brands fa-youtube"></i>
+
+                <div class="card-title">
+                    YouTube
+                </div>
+
+            </div>
+
+            <div class="card"
+            onclick="openSite('https://discord.com')">
+
+                <i class="fa-brands fa-discord"></i>
+
+                <div class="card-title">
+                    Discord
+                </div>
+
+            </div>
+
+            <div class="card"
+            onclick="openSite('https://github.com')">
+
+                <i class="fa-brands fa-github"></i>
+
+                <div class="card-title">
+                    GitHub
+                </div>
+
+            </div>
+
+            <div class="card"
+            onclick="openSite('https://google.com')">
+
+                <i class="fa-brands fa-google"></i>
+
+                <div class="card-title">
+                    Google
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-    <!-- CONTENT -->
+    <!-- NEWS -->
 
-    <div class="content" id="content">
+    <div class="news-section">
 
-        <!-- HOME -->
-
-        <div class="home" id="homePage">
-
-            <div class="title">
-                FÉNIX
-            </div>
-
-            <div class="subtitle">
-                Navegador profesional inspirado en Opera GX
-            </div>
-
-            <!-- SEARCH -->
-
-            <div class="main-search">
-
-                <i class="fa-solid fa-magnifying-glass"></i>
-
-                <input
-                type="text"
-                id="mainSearch"
-                placeholder="Buscar en internet..."
-                >
-
-                <button onclick="searchGoogle()">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-
-            </div>
-
-            <!-- SHORTCUTS -->
-
-            <div class="shortcuts">
-
-                <div class="card"
-                onclick="openWebsite('https://google.com','Google','fa-brands fa-google')">
-
-                    <i class="fa-brands fa-google"></i>
-
-                    <div>Google</div>
-
-                </div>
-
-                <div class="card"
-                onclick="openWebsite('https://youtube.com','YouTube','fa-brands fa-youtube')">
-
-                    <i class="fa-brands fa-youtube"></i>
-
-                    <div>YouTube</div>
-
-                </div>
-
-                <div class="card"
-                onclick="openWebsite('https://github.com','GitHub','fa-brands fa-github')">
-
-                    <i class="fa-brands fa-github"></i>
-
-                    <div>GitHub</div>
-
-                </div>
-
-                <div class="card"
-                onclick="openWebsite('https://discord.com','Discord','fa-brands fa-discord')">
-
-                    <i class="fa-brands fa-discord"></i>
-
-                    <div>Discord</div>
-
-                </div>
-
-            </div>
-
+        <div class="news-title">
+            <i class="fa-solid fa-fire"></i>
+            Noticias de tu país
         </div>
 
-        <!-- IFRAME -->
+        <div class="news-scroll" id="newsContainer">
 
-        <iframe id="browser"></iframe>
+        </div>
 
     </div>
 
@@ -798,109 +756,43 @@ iframe{
 
 <script>
 
-/* ELEMENTOS */
-
-const iframe =
-document.getElementById("browser");
-
-const tabs =
-document.getElementById("tabs");
-
-const homePage =
-document.getElementById("homePage");
-
-const urlBar =
-document.getElementById("urlBar");
-
-const tabTitle =
-document.getElementById("tabTitle");
-
-const tabIcon =
-document.getElementById("tabIcon");
-
-/* ABRIR WEB */
-
-function openWebsite(url,title,icon){
-
-    tabs.style.display = "flex";
-
-    iframe.style.display = "block";
-
-    homePage.style.display = "none";
-
-    iframe.src = url;
-
-    urlBar.value = url;
-
-    tabTitle.innerText = title;
-
-    tabIcon.className = icon;
-
-}
-
 /* SEARCH */
 
-function searchGoogle(){
+function searchWeb(){
 
     let q =
     document
-    .getElementById("mainSearch")
+    .getElementById("search")
     .value
     .trim();
 
     if(q === "") return;
 
-    openWebsite(
+    window.open(
     "https://www.google.com/search?q=" +
     encodeURIComponent(q),
-    q,
-    "fa-brands fa-google"
+    "_blank"
     );
 
 }
 
-/* URL BAR */
+/* ENTER */
 
-urlBar.addEventListener(
-"keypress",
-function(e){
+document
+.getElementById("search")
+.addEventListener("keypress",function(e){
 
     if(e.key === "Enter"){
-
-        let url = urlBar.value.trim();
-
-        if(!url.startsWith("http")){
-            url = "https://" + url;
-        }
-
-        iframe.src = url;
+        searchWeb();
     }
 
 });
 
-/* NAVIGATION */
+/* OPEN SITE */
 
-function goBack(){
+function openSite(url){
 
-    try{
-        iframe.contentWindow.history.back();
-    }catch(err){}
-
-}
-
-function goForward(){
-
-    try{
-        iframe.contentWindow.history.forward();
-    }catch(err){}
-
-}
-
-function reloadPage(){
-
-    try{
-        iframe.contentWindow.location.reload();
-    }catch(err){}
+    window.open(url,"_blank");
 
 }
 
@@ -956,7 +848,209 @@ async function startClock(){
 
 startClock();
 
-</script>
+<!-- NEWS -->
 
+<div class="news-section">
+
+    <div class="news-title">
+
+        <i class="fa-solid fa-fire"></i>
+
+        Noticias de tu país
+
+    </div>
+
+    <div
+    class="news-scroll"
+    id="newsContainer">
+
+    </div>
+
+</div>
+
+<script>
+
+/* =========================
+   GNEWS API
+========================= */
+
+async function loadNews(){
+
+    const container =
+    document.getElementById(
+    "newsContainer"
+    );
+
+    try{
+
+        /* DETECTAR PAÍS */
+
+        const geo =
+        await fetch(
+        "https://ipapi.co/json/"
+        );
+
+        const geoData =
+        await geo.json();
+
+        const countryCode =
+        geoData.country_code
+        .toLowerCase();
+
+        /* API KEY */
+
+        const apiKey =
+        "043e9cd821b8312ed5c1ed88f650333e";
+
+        /* GNEWS */
+
+        const url =
+        `https://gnews.io/api/v4/top-headlines?lang=es&country=${countryCode}&max=12&apikey=${apiKey}`;
+
+        const res =
+        await fetch(url);
+
+        const data =
+        await res.json();
+
+        container.innerHTML = "";
+
+        /* SI NO HAY */
+
+        if(
+            !data.articles ||
+            data.articles.length === 0
+        ){
+
+            container.innerHTML = `
+
+            <div style="
+            color:#999;
+            font-size:18px;
+            padding:20px;
+            ">
+                No hay noticias disponibles.
+            </div>
+
+            `;
+
+            return;
+
+        }
+
+        /* CREAR CARDS */
+
+        data.articles.forEach(article=>{
+
+            const card =
+            document.createElement("div");
+
+            card.className =
+            "news-card";
+
+            card.onclick = ()=>{
+
+                window.open(
+                article.url,
+                "_blank"
+                );
+
+            };
+
+            card.innerHTML = `
+
+            <img
+            src="${
+                article.image ||
+                'https://picsum.photos/500/300'
+            }"
+            loading="lazy"
+            >
+
+            <div class="news-content">
+
+                <div class="news-source">
+
+                    ${
+                        article.source.name ||
+                        'GNews'
+                    }
+
+                </div>
+
+                <div class="news-headline">
+
+                    ${
+                        article.title ||
+                        'Sin título'
+                    }
+
+                </div>
+
+                <div class="news-desc">
+
+                    ${
+                        article.description ||
+                        'Sin descripción.'
+                    }
+
+                </div>
+
+            </div>
+
+            `;
+
+            container.appendChild(card);
+
+        });
+
+    }catch(err){
+
+        console.error(err);
+
+        container.innerHTML = `
+
+        <div style="
+        color:#999;
+        font-size:18px;
+        padding:20px;
+        ">
+
+            Error cargando noticias.
+
+        </div>
+
+        `;
+
+    }
+
+}
+
+/* START */
+
+loadNews();
+
+</script>
 </body>
 </html>
+```
+
+## API de Noticias
+
+Crea una API gratis aquí y reemplaza `TU_API`:
+
+* [https://newsapi.org](https://newsapi.org)
+
+Después cambia:
+
+```js
+const apiKey = "TU_API";
+```
+
+por tu API real.
+
+Ejemplo:
+
+```js
+const apiKey = "abc123456789";
+```
