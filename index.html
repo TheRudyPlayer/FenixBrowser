@@ -1,50 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>Fénix GX</title>
 
 <!-- ICONOS -->
+
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Inter,Arial,sans-serif;
+
+    font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
 }
 
 html,body{
+
     width:100%;
     min-height:100%;
+
     overflow-x:hidden;
+
 }
+
+/* =========================
+   BODY
+========================= */
 
 body{
 
     background:
-    radial-gradient(circle at top left,
-    rgba(255,120,0,0.16),
-    transparent 25%),
 
-    radial-gradient(circle at bottom right,
-    rgba(255,80,0,0.12),
-    transparent 30%),
+    radial-gradient(
+    circle at top left,
+    rgba(255,120,0,0.18),
+    transparent 25%
+    ),
+
+    radial-gradient(
+    circle at bottom right,
+    rgba(255,70,0,0.12),
+    transparent 30%
+    ),
 
     linear-gradient(
     180deg,
-    #180900,
-    #080808
+    #160700,
+    #070707
     );
 
     color:white;
+
 }
 
-/* TOPBAR */
+/* =========================
+   TOPBAR
+========================= */
 
 .topbar{
 
@@ -55,10 +85,10 @@ body{
 
     width:100%;
 
-    height:78px;
+    height:82px;
 
     background:
-    rgba(10,10,10,0.82);
+    rgba(10,10,10,0.84);
 
     backdrop-filter:blur(18px);
 
@@ -74,9 +104,12 @@ body{
     padding:0 20px;
 
     z-index:999;
+
 }
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 .logo{
 
@@ -84,15 +117,16 @@ body{
 
     align-items:center;
 
-    gap:12px;
+    gap:14px;
+
 }
 
 .logo-icon{
 
-    width:50px;
-    height:50px;
+    width:54px;
+    height:54px;
 
-    border-radius:16px;
+    border-radius:18px;
 
     background:
     linear-gradient(
@@ -107,15 +141,16 @@ body{
 
     justify-content:center;
 
-    font-size:22px;
+    font-size:23px;
 
     box-shadow:
-    0 0 22px rgba(255,120,0,0.45);
+    0 0 25px rgba(255,120,0,0.45);
+
 }
 
 .logo-text{
 
-    font-size:26px;
+    font-size:28px;
 
     font-weight:900;
 
@@ -129,21 +164,23 @@ body{
     -webkit-background-clip:text;
 
     -webkit-text-fill-color:transparent;
+
 }
 
-/* MENU */
+/* =========================
+   MENU
+========================= */
 
-.center-menu{
+.menu{
 
     display:flex;
 
     align-items:center;
 
-    justify-content:center;
-
     gap:12px;
 
     flex-wrap:wrap;
+
 }
 
 .menu-btn{
@@ -168,6 +205,7 @@ body{
     align-items:center;
 
     gap:8px;
+
 }
 
 .menu-btn:hover{
@@ -185,13 +223,16 @@ body{
 
     box-shadow:
     0 0 20px rgba(255,120,0,0.35);
+
 }
 
-/* CLOCK */
+/* =========================
+   CLOCK
+========================= */
 
 .clock{
 
-    min-width:110px;
+    min-width:120px;
 
     text-align:center;
 
@@ -202,24 +243,30 @@ body{
 
     border-radius:16px;
 
-    padding:11px 15px;
+    padding:12px 15px;
 
     color:#ffb347;
 
     font-weight:bold;
+
 }
 
-/* MAIN */
+/* =========================
+   MAIN
+========================= */
 
 .main{
 
     width:100%;
 
     padding:
-    130px 25px 40px;
+    140px 25px 40px;
+
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
 
@@ -230,11 +277,16 @@ body{
     margin:auto;
 
     text-align:center;
+
 }
+
+/* =========================
+   TITLE
+========================= */
 
 .title{
 
-    font-size:92px;
+    font-size:96px;
 
     font-weight:900;
 
@@ -253,7 +305,12 @@ body{
     -webkit-background-clip:text;
 
     -webkit-text-fill-color:transparent;
+
 }
+
+/* =========================
+   SUBTITLE
+========================= */
 
 .subtitle{
 
@@ -262,11 +319,14 @@ body{
     font-size:18px;
 
     margin-bottom:42px;
+
 }
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
-.search-container{
+.search-box{
 
     width:100%;
 
@@ -284,11 +344,16 @@ body{
 
     gap:14px;
 
-    padding:15px;
+    padding:16px;
+
 }
 
-.search-container i{
+.search-box i{
+
     color:#ff9d4d;
+
+    font-size:20px;
+
 }
 
 .search-input{
@@ -306,22 +371,23 @@ body{
     font-size:18px;
 
     padding:10px;
+
 }
 
 .search-btn{
 
-    width:62px;
-    height:62px;
+    width:64px;
+    height:64px;
 
     border:none;
 
-    border-radius:20px;
+    border-radius:22px;
 
     cursor:pointer;
 
     color:white;
 
-    font-size:20px;
+    font-size:22px;
 
     background:
     linear-gradient(
@@ -331,6 +397,7 @@ body{
     );
 
     transition:0.25s;
+
 }
 
 .search-btn:hover{
@@ -338,10 +405,13 @@ body{
     transform:scale(1.05);
 
     box-shadow:
-    0 0 28px rgba(255,120,0,0.5);
+    0 0 30px rgba(255,120,0,0.45);
+
 }
 
-/* SHORTCUTS */
+/* =========================
+   SHORTCUTS
+========================= */
 
 .shortcuts{
 
@@ -353,12 +423,17 @@ body{
     repeat(auto-fit,minmax(170px,1fr));
 
     gap:18px;
+
 }
+
+/* =========================
+   CARD
+========================= */
 
 .card{
 
     background:
-    rgba(16,16,16,0.95);
+    rgba(16,16,16,0.96);
 
     border:
     1px solid rgba(255,255,255,0.04);
@@ -370,6 +445,7 @@ body{
     cursor:pointer;
 
     transition:0.25s;
+
 }
 
 .card:hover{
@@ -377,10 +453,11 @@ body{
     transform:translateY(-4px);
 
     border-color:
-    rgba(255,120,0,0.45);
+    rgba(255,120,0,0.4);
 
     box-shadow:
-    0 0 24px rgba(255,120,0,0.16);
+    0 0 24px rgba(255,120,0,0.15);
+
 }
 
 .card i{
@@ -389,17 +466,21 @@ body{
 
     color:#ff9d4d;
 
-    margin-bottom:14px;
+    margin-bottom:15px;
+
 }
 
 .card-title{
 
+    font-size:16px;
+
     color:#ececec;
 
-    font-size:16px;
 }
 
-/* NEWS */
+/* =========================
+   NEWS
+========================= */
 
 .news-section{
 
@@ -408,6 +489,7 @@ body{
     max-width:1200px;
 
     margin:70px auto 0;
+
 }
 
 .news-title{
@@ -418,13 +500,14 @@ body{
 
     gap:12px;
 
-    font-size:30px;
+    font-size:32px;
 
     font-weight:800;
 
     margin-bottom:24px;
 
     color:#ffb347;
+
 }
 
 .news-scroll{
@@ -438,10 +521,13 @@ body{
     padding-bottom:10px;
 
     scroll-behavior:smooth;
+
 }
 
 .news-scroll::-webkit-scrollbar{
+
     height:8px;
+
 }
 
 .news-scroll::-webkit-scrollbar-thumb{
@@ -449,6 +535,7 @@ body{
     background:#ff7b00;
 
     border-radius:20px;
+
 }
 
 .news-card{
@@ -467,11 +554,12 @@ body{
 
     overflow:hidden;
 
-    transition:0.25s;
-
     cursor:pointer;
 
+    transition:0.25s;
+
     flex-shrink:0;
+
 }
 
 .news-card:hover{
@@ -483,6 +571,7 @@ body{
 
     box-shadow:
     0 0 28px rgba(255,120,0,0.18);
+
 }
 
 .news-card img{
@@ -492,11 +581,13 @@ body{
     height:200px;
 
     object-fit:cover;
+
 }
 
 .news-content{
 
     padding:18px;
+
 }
 
 .news-source{
@@ -506,6 +597,7 @@ body{
     font-size:13px;
 
     margin-bottom:10px;
+
 }
 
 .news-headline{
@@ -517,6 +609,7 @@ body{
     line-height:1.4;
 
     margin-bottom:12px;
+
 }
 
 .news-desc{
@@ -526,9 +619,12 @@ body{
     font-size:14px;
 
     line-height:1.5;
+
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:950px){
 
@@ -541,14 +637,19 @@ body{
         gap:16px;
 
         flex-direction:column;
+
     }
 
     .main{
+
         padding-top:220px;
+
     }
 
     .title{
+
         font-size:68px;
+
     }
 
 }
@@ -556,21 +657,28 @@ body{
 @media(max-width:700px){
 
     .title{
+
         font-size:50px;
+
     }
 
     .subtitle{
+
         font-size:15px;
+
     }
 
     .clock{
+
         width:100%;
+
     }
 
     .shortcuts{
 
         grid-template-columns:
         repeat(2,1fr);
+
     }
 
     .news-card{
@@ -578,6 +686,7 @@ body{
         min-width:280px;
 
         max-width:280px;
+
     }
 
 }
@@ -585,86 +694,123 @@ body{
 @media(max-width:500px){
 
     .shortcuts{
+
         grid-template-columns:1fr;
+
     }
 
     .title{
+
         font-size:42px;
+
     }
 
 }
 
 </style>
 </head>
+
 <body>
 
-<!-- TOPBAR -->
+<!-- =========================
+     TOPBAR
+========================= -->
 
 <div class="topbar">
 
     <div class="logo">
 
         <div class="logo-icon">
+
             <i class="fa-solid fa-fire"></i>
+
         </div>
 
         <div class="logo-text">
+
             Fénix GX
+
         </div>
 
     </div>
 
     <!-- MENU -->
 
-    <div class="center-menu">
+    <div class="menu">
 
         <button class="menu-btn">
+
             <i class="fa-solid fa-house"></i>
+
             Inicio
+
         </button>
 
         <button class="menu-btn">
+
             <i class="fa-solid fa-newspaper"></i>
+
             Noticias
+
         </button>
 
         <button class="menu-btn">
+
             <i class="fa-solid fa-gamepad"></i>
+
             Gaming
+
         </button>
 
         <button class="menu-btn">
+
             <i class="fa-solid fa-star"></i>
+
             Favoritos
+
         </button>
 
     </div>
 
     <!-- CLOCK -->
 
-    <div class="clock" id="clock">
+    <div
+    class="clock"
+    id="clock">
+
         00:00:00
+
     </div>
 
 </div>
 
-<!-- MAIN -->
+<!-- =========================
+     MAIN
+========================= -->
 
 <div class="main">
 
     <div class="hero">
 
+        <!-- TITLE -->
+
         <div class="title">
+
             FÉNIX
+
         </div>
 
+        <!-- SUBTITLE -->
+
         <div class="subtitle">
-            Navegador gaming moderno inspirado en Opera GX
+
+            Navegador moderno inspirado en Opera GX
+
         </div>
 
         <!-- SEARCH -->
 
-        <div class="search-container">
+        <div class="search-box">
 
             <i class="fa-solid fa-magnifying-glass"></i>
 
@@ -689,46 +835,58 @@ body{
 
         <div class="shortcuts">
 
-            <div class="card"
+            <div
+            class="card"
             onclick="openSite('https://youtube.com')">
 
                 <i class="fa-brands fa-youtube"></i>
 
                 <div class="card-title">
+
                     YouTube
+
                 </div>
 
             </div>
 
-            <div class="card"
+            <div
+            class="card"
             onclick="openSite('https://discord.com')">
 
                 <i class="fa-brands fa-discord"></i>
 
                 <div class="card-title">
+
                     Discord
+
                 </div>
 
             </div>
 
-            <div class="card"
+            <div
+            class="card"
             onclick="openSite('https://github.com')">
 
                 <i class="fa-brands fa-github"></i>
 
                 <div class="card-title">
+
                     GitHub
+
                 </div>
 
             </div>
 
-            <div class="card"
+            <div
+            class="card"
             onclick="openSite('https://google.com')">
 
                 <i class="fa-brands fa-google"></i>
 
                 <div class="card-title">
+
                     Google
+
                 </div>
 
             </div>
@@ -737,16 +895,33 @@ body{
 
     </div>
 
-    <!-- NEWS -->
+    <!-- =========================
+         NEWS
+    ========================= -->
 
     <div class="news-section">
 
         <div class="news-title">
+
             <i class="fa-solid fa-fire"></i>
+
             Noticias de tu país
+
         </div>
 
-        <div class="news-scroll" id="newsContainer">
+        <div
+        class="news-scroll"
+        id="newsContainer">
+
+            <div style="
+            color:#999;
+            padding:20px;
+            font-size:18px;
+            ">
+
+                Cargando noticias...
+
+            </div>
 
         </div>
 
@@ -754,9 +929,15 @@ body{
 
 </div>
 
+<!-- =========================
+     SCRIPT
+========================= -->
+
 <script>
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 function searchWeb(){
 
@@ -783,12 +964,16 @@ document
 .addEventListener("keypress",function(e){
 
     if(e.key === "Enter"){
+
         searchWeb();
+
     }
 
 });
 
-/* OPEN SITE */
+/* =========================
+   OPEN SITE
+========================= */
 
 function openSite(url){
 
@@ -796,19 +981,24 @@ function openSite(url){
 
 }
 
-/* CLOCK */
+/* =========================
+   CLOCK
+========================= */
 
 async function startClock(){
 
     try{
 
-        const res = await fetch(
+        const res =
+        await fetch(
         "https://worldtimeapi.org/api/timezone/America/Santiago"
         );
 
-        const data = await res.json();
+        const data =
+        await res.json();
 
-        const date = new Date(data.datetime);
+        const date =
+        new Date(data.datetime);
 
         setInterval(()=>{
 
@@ -816,16 +1006,19 @@ async function startClock(){
                 date.getSeconds()+1
             );
 
-            const h = String(
-                date.getHours()
+            const h =
+            String(
+            date.getHours()
             ).padStart(2,"0");
 
-            const m = String(
-                date.getMinutes()
+            const m =
+            String(
+            date.getMinutes()
             ).padStart(2,"0");
 
-            const s = String(
-                date.getSeconds()
+            const s =
+            String(
+            date.getSeconds()
             ).padStart(2,"0");
 
             document
@@ -848,31 +1041,16 @@ async function startClock(){
 
 startClock();
 
-<!-- NEWS -->
-
-<div class="news-section">
-
-    <div class="news-title">
-
-        <i class="fa-solid fa-fire"></i>
-
-        Noticias de tu país
-
-    </div>
-
-    <div
-    class="news-scroll"
-    id="newsContainer">
-
-    </div>
-
-</div>
-
-<script>
-
 /* =========================
    GNEWS API
 ========================= */
+
+/* CAMBIA ESTO */
+
+const apiKey =
+"043e9cd821b8312ed5c1ed88f650333e";
+
+/* NEWS */
 
 async function loadNews(){
 
@@ -883,53 +1061,52 @@ async function loadNews(){
 
     try{
 
-        /* DETECTAR PAÍS */
+        /* GEO */
 
-        const geo =
+        const geoResponse =
         await fetch(
         "https://ipapi.co/json/"
         );
 
         const geoData =
-        await geo.json();
+        await geoResponse.json();
 
-        const countryCode =
-        geoData.country_code
-        .toLowerCase();
-
-        /* API KEY */
-
-        const apiKey =
-        "043e9cd821b8312ed5c1ed88f650333e";
+        let countryCode =
+        (
+            geoData.country_code ||
+            "CL"
+        ).toLowerCase();
 
         /* GNEWS */
 
-        const url =
-        `https://gnews.io/api/v4/top-headlines?lang=es&country=${countryCode}&max=12&apikey=${apiKey}`;
+        const newsUrl =
+        `https://gnews.io/api/v4/top-headlines?category=general&lang=es&country=${countryCode}&max=10&apikey=${apiKey}`;
 
-        const res =
-        await fetch(url);
+        const newsResponse =
+        await fetch(newsUrl);
 
-        const data =
-        await res.json();
+        const newsData =
+        await newsResponse.json();
 
         container.innerHTML = "";
 
-        /* SI NO HAY */
+        /* ERROR */
 
         if(
-            !data.articles ||
-            data.articles.length === 0
+            !newsData.articles ||
+            newsData.articles.length === 0
         ){
 
             container.innerHTML = `
 
             <div style="
             color:#999;
-            font-size:18px;
             padding:20px;
+            font-size:18px;
             ">
-                No hay noticias disponibles.
+
+                No se encontraron noticias.
+
             </div>
 
             `;
@@ -938,12 +1115,14 @@ async function loadNews(){
 
         }
 
-        /* CREAR CARDS */
+        /* CREATE */
 
-        data.articles.forEach(article=>{
+        newsData.articles.forEach(article=>{
 
             const card =
-            document.createElement("div");
+            document.createElement(
+            "div"
+            );
 
             card.className =
             "news-card";
@@ -957,13 +1136,31 @@ async function loadNews(){
 
             };
 
+            const image =
+            article.image
+            ? article.image
+            : "https://picsum.photos/500/300";
+
+            const source =
+            article.source &&
+            article.source.name
+            ? article.source.name
+            : "GNews";
+
+            const title =
+            article.title
+            ? article.title
+            : "Sin título";
+
+            const desc =
+            article.description
+            ? article.description
+            : "Sin descripción.";
+
             card.innerHTML = `
 
             <img
-            src="${
-                article.image ||
-                'https://picsum.photos/500/300'
-            }"
+            src="${image}"
             loading="lazy"
             >
 
@@ -971,28 +1168,19 @@ async function loadNews(){
 
                 <div class="news-source">
 
-                    ${
-                        article.source.name ||
-                        'GNews'
-                    }
+                    ${source}
 
                 </div>
 
                 <div class="news-headline">
 
-                    ${
-                        article.title ||
-                        'Sin título'
-                    }
+                    ${title}
 
                 </div>
 
                 <div class="news-desc">
 
-                    ${
-                        article.description ||
-                        'Sin descripción.'
-                    }
+                    ${desc}
 
                 </div>
 
@@ -1011,9 +1199,9 @@ async function loadNews(){
         container.innerHTML = `
 
         <div style="
-        color:#999;
-        font-size:18px;
+        color:#ff8080;
         padding:20px;
+        font-size:18px;
         ">
 
             Error cargando noticias.
@@ -1031,5 +1219,6 @@ async function loadNews(){
 loadNews();
 
 </script>
+
 </body>
 </html>
